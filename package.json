@@ -1,0 +1,16 @@
+{
+  "name": "whatsapp-clone",
+  "version": "1.0.0",
+  "description": "A professional WhatsApp clone with real-time messaging built with MERN stack",
+  "main": "index.js",
+  "scripts": {
+    "dev:backend": "npm run dev --prefix backend",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "build": "npm install --prefix backend && npm install --prefix frontend && npm run build --prefix frontend",
+    "start": "npm run start --prefix backend",
+    "install:all": "npm install && npm install --prefix backend && npm install --prefix frontend"
+  },
+  "keywords": ["whatsapp", "chat", "real-time", "mern", "socket.io"],
+  "author": "chinmoy-2004",
+  "license": "MIT"
+}
