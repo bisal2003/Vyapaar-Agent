@@ -1,0 +1,11 @@
+{
+  "document_type": "Payment Receipt",
+  "document_number": "PR-20260207-001",
+  "date": "2026-02-07",
+  "payer_name": "Rahul",
+  "amount_received": 2000,
+  "payment_method": "Cash",
+  "purpose": "Payment against outstanding balance",
+  "previous_balance": 2000,
+  "current_balance": 0
+}

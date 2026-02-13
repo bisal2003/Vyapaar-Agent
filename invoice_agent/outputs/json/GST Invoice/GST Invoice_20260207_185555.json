@@ -1,0 +1,22 @@
+{
+  "document_type": "GST Invoice",
+  "document_number": "GST-001",
+  "date": "2026-02-07",
+  "customer_name": "Rahul",
+  "customer_gstin": null,
+  "items": [
+    {
+      "item_name": "Cement Bag",
+      "hsn_code": "2523",
+      "quantity": 10,
+      "unit_price": 350.0,
+      "gst_rate": 18
+    }
+  ],
+  "total_amount": 4130.0,
+  "tax_details": {
+    "cgst_amount": 315.0,
+    "sgst_amount": 315.0,
+    "igst_amount": 0.0
+  }
+}

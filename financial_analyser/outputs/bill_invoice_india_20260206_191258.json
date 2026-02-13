@@ -1,0 +1,23 @@
+{
+  "status": "success",
+  "filename": "bill_invoice_india.jpg",
+  "timestamp": "2026-02-06T19:12:58.905749",
+  "data": {
+    "document_type": "invoice",
+    "amount": 4490.0,
+    "date": "23/07/2025",
+    "vendor_name": "Gujarat Freight Tools",
+    "gstin": "27CORPP3939N1ZQ",
+    "items": [
+      "Bosch All-in-One Metal Hand Tool Kit",
+      "Taparia Universal Tool Kit"
+    ],
+    "invoice_number": "GST-3525-26",
+    "utr_number": null,
+    "sender_name": null,
+    "receiver_name": "Shiv Engineering",
+    "payment_app": null,
+    "description": null
+  },
+  "confidence_score": 100.0
+}
