@@ -1,0 +1,20 @@
+{
+  "status": "success",
+  "filename": "payment.jpeg",
+  "timestamp": "2026-02-06T19:06:17.780287",
+  "data": {
+    "document_type": "upi_screenshot",
+    "amount": 2500,
+    "date": "03/02/2026",
+    "vendor_name": null,
+    "gstin": null,
+    "items": null,
+    "invoice_number": null,
+    "utr_number": "640004657254",
+    "sender_name": "Nizamuddin Ahmed",
+    "receiver_name": "Misbahul Karim",
+    "payment_app": "CRED",
+    "description": null
+  },
+  "confidence_score": 100.0
+}

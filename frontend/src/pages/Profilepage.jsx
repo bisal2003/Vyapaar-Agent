@@ -74,7 +74,7 @@ const Profilepage = () => {
               </label>
             </div>
             <div className='text-center'>
-              <h2 className="text-2xl font-medium text-[#e9edef]">{authUser?.fullname}</h2>
+              <h2 className="text-2xl font-medium text-[#e9edef]">{authUser?.fullName}</h2>
               <p className="text-sm text-[#8696a0] mt-1">
                 {isUpdatingProfile ? "Uploading..." : "Click the camera icon to update your photo"}
               </p>
@@ -89,7 +89,7 @@ const Profilepage = () => {
                 Full Name
               </div>
               <div className="px-4 py-3 bg-[#2a3942] rounded-lg border border-[#2a3942]">
-                <p className='text-[#e9edef]'>{authUser?.fullname}</p>
+                <p className='text-[#e9edef]'>{authUser?.fullName}</p>
               </div>
             </div>
 

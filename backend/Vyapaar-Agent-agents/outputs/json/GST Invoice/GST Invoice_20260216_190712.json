@@ -1,0 +1,29 @@
+{
+  "document_type": "GST Invoice",
+  "document_number": "INV-20260216-001",
+  "date": "2026-02-16",
+  "customer_details": {
+    "name": "Cash Customer"
+  },
+  "items": [
+    {
+      "name": "Rice",
+      "quantity": 2,
+      "unit": "kg",
+      "unit_price": 60.0,
+      "hsn": "1006",
+      "gst_rate": 5
+    },
+    {
+      "name": "Cooking Oil",
+      "quantity": 1,
+      "unit": "liter",
+      "unit_price": 150.0,
+      "hsn": "1512",
+      "gst_rate": 5
+    }
+  ],
+  "total_amount": 283.5,
+  "payment_status": "Unpaid",
+  "notes": ""
+}

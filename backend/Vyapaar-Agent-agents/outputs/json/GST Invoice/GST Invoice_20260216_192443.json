@@ -1,0 +1,29 @@
+{
+  "document_type": "GST Invoice",
+  "document_number": "GINV-20260216-001",
+  "date": "2026-02-16",
+  "customer_name": "Meera",
+  "customer_gstin": null,
+  "items": [
+    {
+      "description": "Generic Item",
+      "hsn_sac": "9999",
+      "quantity": 1,
+      "unit": "Pcs",
+      "unit_price": 1000.0,
+      "gst_rate": 18.0,
+      "item_total": 1000.0
+    }
+  ],
+  "sub_total": 1000.0,
+  "tax_details": {
+    "cgst_rate": 9.0,
+    "cgst_amount": 90.0,
+    "sgst_rate": 9.0,
+    "sgst_amount": 90.0,
+    "igst_rate": 0.0,
+    "igst_amount": 0.0,
+    "total_gst_amount": 180.0
+  },
+  "total_amount": 1180.0
+}

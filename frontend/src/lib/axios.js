@@ -5,4 +5,13 @@ const axiosInstance = axios.create({
     withCredentials: true,
 })
 
+// Interceptor to add demo user info to requests
+axiosInstance.interceptors.request.use((config) => {
+    const demoUser = localStorage.getItem('demoUser');
+    if (demoUser) {
+        config.headers['X-Demo-User'] = demoUser;
+    }
+    return config;
+});
+
 export default axiosInstance;

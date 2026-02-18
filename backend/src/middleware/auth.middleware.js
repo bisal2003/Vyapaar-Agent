@@ -3,29 +3,67 @@ import User from '../models/user.models.js';
 import dotenv from 'dotenv';
 dotenv.config();
 
-export const protectroute = async (req, res, next) => {
+export const protectRoute = async (req, res, next) => {
     try {
+        // Demo mode - check for X-Demo-User header
+        const demoUserHeader = req.headers['x-demo-user'];
+        
+        if (demoUserHeader) {
+            try {
+                req.user = JSON.parse(demoUserHeader);
+                return next();
+            } catch (parseError) {
+                console.log('Error parsing demo user header:', parseError);
+            }
+        }
+        
         const token = req.cookies.jwt;
+        
+        // Demo mode - if no token and no header, create a demo user
         if (!token) {
-            return res.status(401).json({ message: 'Unauthorized access-no token provided' });
+            req.user = {
+                _id: 'demo-seller',
+                fullName: 'Demo Seller',
+                email: 'seller@demo.com',
+                profilePic: 'https://avatar.iran.liara.run/public/boy?username=seller'
+            };
+            return next();
         }
 
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
         if (!decoded) {
-            return res.status(401).json({ message: 'Unauthorized access-token verification failed' });
+            req.user = {
+                _id: 'demo-seller',
+                fullName: 'Demo Seller',
+                email: 'seller@demo.com',
+                profilePic: 'https://avatar.iran.liara.run/public/boy?username=seller'
+            };
+            return next();
         }
 
         const user=await User.findById(decoded.userId).select("-password");
         if(!user){
-            return res.status(404).json({message:'User not found'})
+            req.user = {
+                _id: 'demo-seller',
+                fullName: 'Demo Seller',
+                email: 'seller@demo.com',
+                profilePic: 'https://avatar.iran.liara.run/public/boy?username=seller'
+            };
+            return next();
         }
 
         req.user=user;
         next();
 
     } catch (error) {
-        console.log('error in protectroute', error);
-        res.status(500).json({ message: 'Internal server error' });
+        console.log('error in protectRoute', error);
+        req.user = {
+            _id: 'demo-seller',
+            fullName: 'Demo Seller',
+            email: 'seller@demo.com',
+            profilePic: 'https://avatar.iran.liara.run/public/boy?username=seller'
+        };
+        next();
     }
 }

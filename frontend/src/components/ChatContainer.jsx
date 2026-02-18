@@ -138,11 +138,11 @@ const ChatContainer = () => {
 
       {/* Messages */}
       <div className='flex-1 overflow-y-auto px-4 md:px-[8%] py-3 space-y-2 relative z-10 scrollbar-thin scrollbar-thumb-[#374045] scrollbar-track-transparent'>
-        {messages.map((message) => {
+        {messages.map((message, index) => {
           const isOwnMessage = message.senderId === authUser._id;
           return (
             <div 
-              key={message._id} 
+              key={message._id || `message-${index}`} 
               className={`flex ${isOwnMessage ? 'justify-end' : 'justify-start'} group`}
               draggable
               onDragStart={(e) => handleDragStart(e, message)}

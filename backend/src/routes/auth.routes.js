@@ -1,6 +1,6 @@
 import express from 'express';
 import { checkAuth, login, logout, signup, updateProfile } from '../controller/auth.controller.js';
-import { protectroute } from '../middleware/auth.middleware.js';
+import { protectRoute } from '../middleware/auth.middleware.js';
 
 const router=express.Router();
 
@@ -10,8 +10,8 @@ router.post('/login',login)
 
 router.post('/logout',logout)
 
-router.put('/update-profile',protectroute,updateProfile)
+router.put('/update-profile',protectRoute,updateProfile)
 
-router.get('/check',protectroute,checkAuth)
+router.get('/check',protectRoute,checkAuth)
 
 export default router;

@@ -1,0 +1,32 @@
+{
+  "document_type": "GST Invoice",
+  "document_number": "GSTI-001",
+  "date": "2026-02-16",
+  "customer_details": {
+    "name": "Bob"
+  },
+  "items": [
+    {
+      "description": "Rice",
+      "HSN": "1006",
+      "quantity": 3,
+      "unit": "kg",
+      "unit_price": 50.0,
+      "GST_rate": 5.0
+    },
+    {
+      "description": "Oil",
+      "HSN": "1512",
+      "quantity": 1,
+      "unit": "ltr",
+      "unit_price": 150.0,
+      "GST_rate": 5.0
+    }
+  ],
+  "total_amount": 315.0,
+  "tax_details": {
+    "CGST": 7.5,
+    "SGST": 7.5,
+    "IGST": 0.0
+  }
+}

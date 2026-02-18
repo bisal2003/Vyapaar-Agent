@@ -29,7 +29,7 @@ const Sidebar = () => {
     : users;
 
   const searchedUsers = filterUsers.filter((user) =>
-    user.fullname.toLowerCase().includes(searchQuery.toLowerCase())
+    user.fullName?.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   if (isUsersloading) return <SidebarSkeleton />;
@@ -52,7 +52,7 @@ const Sidebar = () => {
             className="w-10 h-10 rounded-full object-cover"
           />
           <div className="flex flex-col">
-            <span className="text-[#e9edef] font-medium text-base">{authUser?.fullname}</span>
+            <span className="text-[#e9edef] font-medium text-base">{authUser?.fullName}</span>
             <span className="text-[#8696a0] text-xs">Online</span>
           </div>
         </div>
@@ -117,7 +117,7 @@ const Sidebar = () => {
                 <div className="relative flex-shrink-0">
                   <img
                     src={user.profilePic || "/avatar.png"}
-                    alt={user.fullname}
+                    alt={user.fullName}
                     className="w-12 h-12 rounded-full object-cover"
                   />
                   {isOnline && (
@@ -126,7 +126,7 @@ const Sidebar = () => {
                 </div>
                 <div className="flex-1 min-w-0 border-b border-[#2a3942] pb-3">
                   <div className="flex justify-between items-baseline mb-1">
-                    <h3 className="text-[#e9edef] font-medium truncate">{user.fullname}</h3>
+                    <h3 className="text-[#e9edef] font-medium truncate">{user.fullName}</h3>
                     <span className="text-[#667781] text-xs ml-2 flex-shrink-0">
                       {user.lastMessageTime ? formatTime(user.lastMessageTime) : ''}
                     </span>

@@ -1,7 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import Homepage from "./pages/Homepage.jsx";
-import Loginpage from "./pages/Loginpage.jsx";
-import Signuppage from "./pages/Signuppage.jsx";
+import WelcomePage from "./pages/WelcomePage.jsx";
 import Profilepage from "./pages/Profilepage.jsx";
 import { useAuthstore } from "./store/useAuthstore.js";
 import { useEffect } from "react";
@@ -10,11 +9,15 @@ import { Toaster } from "react-hot-toast";
 
 export default function App() {
 
-  const { authUser, checkAuth, ischekingAuth } = useAuthstore();
+  const { authUser, checkAuth, ischekingAuth, quickLogin } = useAuthstore();
 
   useEffect(() => {
     checkAuth()
   }, [checkAuth]);
+
+  const handleQuickStart = (name) => {
+    quickLogin(name);
+  };
 
   if (ischekingAuth && !authUser) {
     return (
@@ -26,12 +29,15 @@ export default function App() {
 
   return (
     <div className="bg-[#111b21]">
-      <Routes>
-        <Route path="/" element={authUser ? <Homepage /> : <Navigate to="/login" />} />
-        <Route path="/signup" element={!authUser ? <Signuppage /> : <Navigate to="/" />} />
-        <Route path="/login" element={!authUser ? <Loginpage /> : <Navigate to="/" />} />
-        <Route path="/profile" element={authUser ? <Profilepage /> : <Navigate to="/login" />} />
-      </Routes>
+      {!authUser ? (
+        <WelcomePage onStart={handleQuickStart} />
+      ) : (
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/profile" element={<Profilepage />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      )}
 
       <Toaster 
         position="top-center"

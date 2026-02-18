@@ -1,0 +1,29 @@
+{
+  "document_type": "GST Invoice",
+  "document_number": "GINV-001",
+  "date": "2026-02-16",
+  "customer_details": {
+    "name": "Meera",
+    "address": "N/A",
+    "gstin": "N/A"
+  },
+  "items": [
+    {
+      "description": "Rice",
+      "hsn_sac": "1006",
+      "quantity": 5,
+      "unit": "kg",
+      "unit_price": 60.0,
+      "gst_rate": 5,
+      "taxable_value": 300.0
+    }
+  ],
+  "summary": {
+    "total_taxable_value": 300.0,
+    "cgst_amount": 7.5,
+    "sgst_amount": 7.5,
+    "igst_amount": 0.0,
+    "total_gst_amount": 15.0,
+    "grand_total": 315.0
+  }
+}

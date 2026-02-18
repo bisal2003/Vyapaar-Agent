@@ -1,0 +1,22 @@
+{
+  "document_type": "GST Invoice",
+  "document_number": "INV-2026-02-16-001",
+  "date": "2026-02-16",
+  "customer_name": "Meera",
+  "items": [
+    {
+      "description": "Rice",
+      "hsn_code": "1006",
+      "quantity": 5,
+      "unit": "kg",
+      "unit_price": 60.0,
+      "gst_rate": 5
+    }
+  ],
+  "total_amount": 315.0,
+  "gst_details": {
+    "cgst_amount": 7.5,
+    "sgst_amount": 7.5,
+    "total_gst_amount": 15.0
+  }
+}

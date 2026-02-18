@@ -1,0 +1,8 @@
+google-genai
+Pillow
+pydantic
+pydantic-settings
+SQLAlchemy
+tabulate
+python-dotenv
+reportlab

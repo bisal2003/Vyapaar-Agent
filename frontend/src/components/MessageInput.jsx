@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { useChatstore } from "../store/useChatstore.js";
-import { Image, Send, X, Smile, Mic, Paperclip, File } from "lucide-react";
+import { Image, Send, X, Smile, Mic, Paperclip, File, Sparkles } from "lucide-react";
 import toast from "react-hot-toast";
 
 const MessageInput = () => {
@@ -11,6 +11,9 @@ const MessageInput = () => {
   const fileInputRef = useRef(null);
   const imageInputRef = useRef(null);
   const { sendMessage, replyingTo, clearReplyingTo } = useChatstore();
+
+  // Check if message contains @v tag
+  const hasAgentTag = text.toLowerCase().includes('@v');
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -153,6 +156,21 @@ const MessageInput = () => {
         </div>
       )}
 
+      {/* Agent Tag Helper */}
+      {hasAgentTag && (
+        <div className="mb-3 flex items-center gap-2 bg-gradient-to-r from-purple-900/30 to-blue-900/30 p-3 rounded-lg border border-purple-500/50">
+          <Sparkles className="w-5 h-5 text-purple-400" />
+          <div className="flex-1">
+            <div className="text-purple-300 text-xs font-semibold mb-1">
+              🤖 AI Agent Activated
+            </div>
+            <div className="text-purple-200 text-xs">
+              Your message will be processed by Vyapaar AI to generate invoice and update database automatically
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Input Form */}
       <form onSubmit={handleSendMessage} className="flex items-center gap-2">
         <div className="flex-1 flex items-center gap-2 bg-[#2a3942] rounded-lg px-4 py-2">
@@ -166,10 +184,22 @@ const MessageInput = () => {
           <input
             type="text"
             className="flex-1 bg-transparent text-[#e9edef] text-sm outline-none placeholder:text-[#667781]"
-            placeholder="Type a message"
+            placeholder={hasAgentTag ? "AI will process this message..." : "Type a message or use @v to invoke AI agent"}
             value={text}
             onChange={(e) => setText(e.target.value)}
           />
+
+          {/* Quick @v Tag Button */}
+          {!hasAgentTag && (
+            <button
+              type="button"
+              className="text-purple-400 hover:text-purple-300 transition"
+              onClick={() => setText(text + ' @v ')}
+              title="Invoke AI Agent"
+            >
+              <Sparkles className="w-5 h-5" />
+            </button>
+          )}
 
           <input
             type="file"

@@ -1,0 +1,25 @@
+{
+  "document_type": "GST Invoice",
+  "document_number": "GST-INV-2026-0001",
+  "date": "2026-02-13",
+  "customer_name": "Faruk",
+  "items": [
+    {
+      "description": "Aata Bag",
+      "hsn_sac": "1101",
+      "quantity": 7,
+      "unit": "bag",
+      "unit_price": 500.0,
+      "gst_rate": 18,
+      "amount": 3500.0
+    }
+  ],
+  "total_amount": 4130.0,
+  "gst_details": {
+    "cgst": 315.0,
+    "sgst": 315.0,
+    "igst": 0.0,
+    "total_gst": 630.0
+  },
+  "amount_in_words": "Four Thousand One Hundred Thirty Rupees Only"
+}

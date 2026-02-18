@@ -1,0 +1,17 @@
+{
+  "document_type": "GST Invoice",
+  "date": "2026-02-15",
+  "document_number": "GINV-2026-001",
+  "customer_name": "CJ",
+  "items": [
+    {
+      "description": "Aata Bag",
+      "hsn_code": "1101",
+      "quantity": 7,
+      "unit_price": 300.0,
+      "gst_rate": 5.0
+    }
+  ],
+  "total_amount": 2205.0,
+  "payment_status": "Pending"
+}

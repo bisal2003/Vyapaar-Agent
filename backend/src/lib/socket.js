@@ -15,6 +15,10 @@ export function getReceiverSocket(userId) {
   return userSocketMap[userId];
 }
 
+export function getUserSocketMap() {
+  return userSocketMap;
+}
+
 //used to store online users
 const userSocketMap = {};//{userId:socketId}
 

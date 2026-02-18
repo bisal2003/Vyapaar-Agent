@@ -1,0 +1,28 @@
+VYAPAAR-AGENT: AI-POWERED BUSINESS COMMUNICATION ASSISTANT
+
+Vyapaar-Agent is an intelligent WhatsApp-style business assistant designed to revolutionize how small and medium retailers manage customer communications and billing. Our MVP addresses the critical pain point of time-consuming manual invoice generation that plagues millions of small businesses across India.
+
+PROBLEM STATEMENT
+Small retail businesses spend countless hours creating invoices, managing customer records, and tracking transactions manually. This process is error-prone, inefficient, and takes valuable time away from customer service and business growth. Traditional billing software is either too complex, too expensive, or requires extensive training.
+
+OUR SOLUTION
+Vyapaar-Agent brings the simplicity of WhatsApp messaging combined with the power of artificial intelligence to automate business operations. Sellers can chat naturally with customers, and with a simple "@v" tag, our AI instantly generates GST-compliant invoices, manages inventory, and records transactions - all within the familiar chat interface.
+
+KEY FEATURES
+The core functionality revolves around conversational invoice generation. When a customer requests products like "I need 5kg rice and 2 liters oil", the seller simply replies with "@v" and our Google Gemini-powered AI agent automatically extracts product details, calculates pricing with GST, generates a professional invoice, and saves the transaction to the database. The entire process takes seconds instead of minutes.
+
+Real-time communication is enabled through Socket.IO, allowing multiple sellers to handle different customers simultaneously. The system automatically creates customer profiles from chat interactions, eliminating manual data entry. An integrated dashboard provides instant insights into sales, revenue, inventory levels, and customer analytics.
+
+TECHNICAL ARCHITECTURE
+Our MVP uses a modern three-tier architecture: React-based frontend with real-time Socket.IO integration for the chat interface, Node.js backend with MongoDB for data management and business logic, and a Python-based AI service powered by Google Gemini for intelligent invoice generation. This separation ensures scalability and maintainable code.
+
+The frontend mimics WhatsApp's familiar interface, reducing learning curves for users. Messages are processed in real-time, with instant delivery and read receipts. The backend handles authentication, message routing, database operations, and coordinates with the AI service. The AI layer uses advanced natural language processing to understand product requests, match items with inventory, calculate taxes, and generate properly formatted invoices following Indian GST standards.
+
+USER WORKFLOW
+The experience is remarkably simple. Sellers enter their name (no complex signup required for our demo), select a customer from the sidebar, and start chatting. When customers request products, sellers type "@v" in their reply. Within seconds, the AI analyzes the conversation context, identifies requested items, matches them with the inventory database, generates a complete GST invoice with HSN codes and tax calculations, creates a transaction record, and displays the invoice in the chat for both parties to see.
+
+TARGET MARKET
+Our primary users are kiranas, grocery stores, wholesale dealers, and small retail businesses that handle 10-100 daily transactions and need quick digital billing without investing in expensive POS systems or complex ERP software.
+
+IMPACT
+Vyapaar-Agent reduces invoice generation time from 3-5 minutes to under 10 seconds, eliminates calculation errors, ensures GST compliance, and provides valuable business insights through automated analytics, allowing business owners to focus on growth rather than paperwork.

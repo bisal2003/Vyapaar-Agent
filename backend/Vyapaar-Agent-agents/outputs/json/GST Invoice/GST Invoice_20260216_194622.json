@@ -1,0 +1,23 @@
+{
+  "document_type": "GST Invoice",
+  "document_number": "GST-20260216-001",
+  "date": "2026-02-16",
+  "customer_name": "Charlie",
+  "items": [
+    {
+      "description": "Rice",
+      "hsn_sac": "1006",
+      "quantity": 10,
+      "unit": "kg",
+      "unit_price": 50.0,
+      "gst_rate": 5.0
+    }
+  ],
+  "total_amount": 525.0,
+  "gst_details": {
+    "cgst": 12.5,
+    "sgst": 12.5,
+    "igst": 0.0,
+    "total_gst": 25.0
+  }
+}

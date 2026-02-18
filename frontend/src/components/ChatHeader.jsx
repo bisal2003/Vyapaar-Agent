@@ -15,7 +15,7 @@ const ChatHeader = () => {
           <div className="relative flex-shrink-0">
             <img 
               src={selectedUser.profilePic || "/avatar.png"} 
-              alt={selectedUser.fullname}
+              alt={selectedUser.fullName}
               className="w-10 h-10 rounded-full object-cover"
             />
             {isOnline && (
@@ -25,7 +25,7 @@ const ChatHeader = () => {
 
           {/* User info */}
           <div className="cursor-pointer">
-            <h3 className="text-[#e9edef] font-medium">{selectedUser.fullname}</h3>
+            <h3 className="text-[#e9edef] font-medium">{selectedUser.fullName}</h3>
             <p className="text-[#667781] text-sm">
               {isOnline ? "online" : "offline"}
             </p>

@@ -15,10 +15,14 @@ export const useAuthstore = create((set, get) => ({
     socket: null,
 
     checkAuth: async () => {
+        // Demo mode - check localStorage for saved user
         try {
-            const res = await axiosInstance.get("/auth/check");
-            set({ authUser: res.data });
-            get().connectSocket();
+            const savedUser = localStorage.getItem('demoUser');
+            if (savedUser) {
+                const user = JSON.parse(savedUser);
+                set({ authUser: user });
+                get().connectSocket();
+            }
         } catch (error) {
             console.log("error in checkAuth", error);
             set({ authUser: null });
@@ -26,6 +30,22 @@ export const useAuthstore = create((set, get) => ({
         finally {
             set({ ischekingAuth: false });
         }
+    },
+
+    // Simple demo login - just save name
+    quickLogin: (name) => {
+        // Create consistent ID based on name (not timestamp)
+        const userId = 'user-' + name.toLowerCase().replace(/\s+/g, '-');
+        const user = {
+            _id: userId,
+            fullName: name,
+            email: `${name.toLowerCase().replace(/\s+/g, '')}@demo.com`,
+            profilePic: `https://avatar.iran.liara.run/public/boy?username=${name}`,
+        };
+        localStorage.setItem('demoUser', JSON.stringify(user));
+        set({ authUser: user });
+        toast.success(`Welcome ${name}! 🎉`);
+        get().connectSocket();
     },
 
     signup: async (data) => {
@@ -37,7 +57,7 @@ export const useAuthstore = create((set, get) => ({
             get().connectSocket();
         } catch (error) {
             console.log("error in signup in useAuthstore", error);
-            toast.error(error.response.data.message);
+            toast.error(error.response?.data?.message || "Signup failed");
         } finally {
             set({ isSigningup: false });
         }
@@ -45,12 +65,13 @@ export const useAuthstore = create((set, get) => ({
 
     logout: async () => {
         try {
-            await axiosInstance.post("/auth/logout");
+            // Demo mode - just clear localStorage
+            localStorage.removeItem('demoUser');
             set({ authUser: null });
-            toast.success("logged out successfully");
+            toast.success("Logged out successfully");
             get().disconnectSocket();
         } catch (error) {
-            toast.error(error.response.data.message);
+            toast.error(error.response?.data?.message || "Logout failed");
             console.log("error in logout in useAuthstore", error);
         }
     },
@@ -65,7 +86,7 @@ export const useAuthstore = create((set, get) => ({
             get().connectSocket();
         } catch (error) {
             console.log("error in login in useAuthstore", error);
-            toast.error(error.response.data.message);
+            toast.error(error.response?.data?.message || "Login failed");
         }
         finally {
             set({ isLoggingin: false });
@@ -80,7 +101,7 @@ export const useAuthstore = create((set, get) => ({
             toast.success("profile updated successfully");
         } catch (error) {
             console.log("error in updateProfile in useAuthstore", error);
-            toast.error(error.response.data.message);
+            toast.error(error.response?.data?.message || "Profile update failed");
         } finally {
             set({ isUpdatingProfile: false });
         }
